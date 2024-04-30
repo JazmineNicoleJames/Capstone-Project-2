@@ -1,0 +1,42 @@
+.result-text {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+h3.result-text {
+    font-size: smaller;
+}
+
+
+.blood-container {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 100vh; /* Adjust height as needed */
+}
+
+/* Blood drop */
+.blood {
+    position: absolute;
+    width: 10px; /* Adjust size of the blood drop */
+    height: 20px; /* Adjust size of the blood drop */
+    background-color: red; /* Adjust color of the blood */
+    border-radius: 50%;
+    bottom: 0;
+    animation: bloodDrop 4s linear infinite; /* Adjust animation duration */
+}
+
+/* Keyframes for the blood drop animation */
+@keyframes bloodDrop {
+    0% {
+        transform: translateY(-20px) rotate(0deg); /* Initial position and rotation */
+        opacity: 0; /* Start with opacity 0 */
+    }
+    50% {
+        transform: translateY(100vh) rotate(360deg); /* Move down and rotate */
+        opacity: 1; /* Increase opacity */
+    }
+    100% {
+        transform: translateY(100vh) rotate(720deg); /* Move down and rotate */
+        opacity: 0; /* Fade out */
+    }
+}
