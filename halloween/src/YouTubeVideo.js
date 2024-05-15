@@ -1,6 +1,7 @@
 import React, {useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import HalloweenApi from "./api";
+import Questions from "./Questions";
 import "./YouTubeVideo.css";
 
 
@@ -21,43 +22,57 @@ const YouTubeVideo = () => {
   const [videoData, setVideoData] = useState(null);
   const [title, SetTitle] = useState(null);
   const [description, setDescription] = useState(null);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     async function fetchData() {
       try {
-        const res = await HalloweenApi.getCostume(item_name);
-        if(res.snippet.description){
-          let description = res.snippet.description;
-          if(description.indexOf("Products") !== null){
-            let descriptionIdx = description.indexOf("Products");
-            setDescription(description.substring(descriptionIdx))
-            console.log('descripidx', description.substring(descriptionIdx))
+        if(item_name){
+          const res = await HalloweenApi.getCostume(item_name);
+          if(res && res.snippet && res.snippet.description !== undefined){
+            let description = res.snippet.description;
+            let videoTitle = res.snippet.title;
+            SetTitle(videoTitle)
+            const videoId = res.id;
+            let videoData = `https://www.youtube.com/embed/${videoId}`;
+            setVideoData(videoData)
+            if(description.indexOf("Products") !== null){
+              let descriptionIdx = description.indexOf("Products");
+              setDescription(description.substring(descriptionIdx))
+            }
+          } else{
+            return(<Questions />)
           }
         }
-        const videoId = res.id;
-        let videoData = `https://www.youtube.com/embed/${videoId}`;
-        let videoTitle = res.snippet.title;
-        SetTitle(videoTitle)
-        setVideoData(videoData)
+
+
       } catch (e) {
-        console.error('Error fetching video data', e)
+        setError(e)
+/*         console.error('Error fetching video data', e) */
       }
     }
     fetchData();
   }, [item_name]);
 
+  if(error){
+    return( <div> Error </div>)
+  }
+
     return (
         <div>
         <h3 className="result-text"> Watch this tutorial to learn how to transform yourself into </h3>
+        {item_name && (
         <p className="result-text">{item_name.replace(/-/g, ' ').toUpperCase()}</p>
+        )}
         <iframe
         width="560"
         height="315"
         src={videoData}
         frameborder="0"
+        suppressHydrationWarning={true}
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
       ></iframe>
-              <p>{title}</p>
+              <p className="title">{title}</p>
               {description && (
                 <div style={{ maxHeight:"200px", overflowY:"auto"}}>
                   <ul>

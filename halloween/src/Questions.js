@@ -27,14 +27,13 @@ const Questions = () => {
     const handleSubmit = async (event) => {
         event.preventDefault();
         const res = await HalloweenApi.getByAllFilters(theme || null, genderPref || null, experienceLevel || null);
-        if(res.length > 0){
+        if(res && res.length > 0){
             const costumeResult = res[0].item_name;
             navigate(`/costumes/${costumeResult}`)
         } else {
             alert("Sorry, there are no results for your search filter. Please try again")
             navigate("/")
         }
-
     }
 
     return (
@@ -44,7 +43,7 @@ const Questions = () => {
             <form onSubmit={handleSubmit} className="custom-select" data-testid="my-form">
                 <div className="custom-select">
                     <label htmlFor="theme">
-                        <select value={theme} onChange={(e) => setTheme(e.target.value)}>
+                        <select id='theme' value={theme} onChange={(e) => setTheme(e.target.value)}>
                             <option value="theme">Select a theme</option>
                             <option value="classic">Classic</option>
                             <option value="pop-culture">Pop Culture</option>

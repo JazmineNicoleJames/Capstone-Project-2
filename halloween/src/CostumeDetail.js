@@ -21,6 +21,7 @@ const CostumeDetail = ({ allCostumes }) => {
 
     const {item_name} = useParams();
     const [selectedCostume, setSelectedCostume] = useState(null);
+    const [error, setError] = useState(null);
     
     useEffect(() => {
         const fetchCostume = async () => {
@@ -31,6 +32,7 @@ const CostumeDetail = ({ allCostumes }) => {
                 }
 
             } catch (e) {
+                setError(e)
                 console.error('e', e)
             }
 
@@ -38,10 +40,13 @@ const CostumeDetail = ({ allCostumes }) => {
         fetchCostume();
     }, [allCostumes, item_name]);
 
+    if(error){
+        return(<div> Error </div>)
+    }
+    
     if(!selectedCostume) return <div>Loading...</div>;
 
     const {result_type, youtube_video_id, amazon_link_id, img} = selectedCostume;
-    
     return (
         <div>
             {result_type === 'youtube-video' && youtube_video_id && (

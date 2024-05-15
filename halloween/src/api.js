@@ -1,4 +1,4 @@
-import axios from "axios";
+const axios = "axios";
 
 const BASE_URL = process.env.REACT_APP_BASE_URL || "http://localhost:3001";
 
@@ -27,10 +27,12 @@ class HalloweenApi {
 
     static async getCostumes() {
         let res = await this.request(`costumes`);
+        console.log('res', res)
         return res;
     }
     static async getCostume(name) {
         let res = await this.request(`costumes/${name}`);
+        console.log('res in getCostume!!@@@@', res)
         return res;
     };
 
@@ -42,8 +44,6 @@ class HalloweenApi {
         } catch(e) {
             console.error('error', e)
         }
-
-
     }
 }
 

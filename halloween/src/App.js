@@ -13,6 +13,7 @@ import './App.css';
 
 function App() {
   const [allCostumes, setAllCostumes] = useState(null);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     async function fetchData() {
@@ -20,12 +21,18 @@ function App() {
         const res = await HalloweenApi.getCostumes();
         let allCostumes = res;
         setAllCostumes(allCostumes)
-      } catch (e) {
-        console.error('Error fetching video data', e)
+      } catch (error) {
+        setError(error)
       }
     }
     fetchData();
   }, [])
+
+  if(error){
+    return(
+      <div> Error</div>
+    )
+    }
 
   return (
     <div className="App">

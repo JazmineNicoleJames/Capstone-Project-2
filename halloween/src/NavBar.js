@@ -14,7 +14,7 @@ const NavBar = () => {
       <div>
         <Navbar expand="md">
           <NavItem>
-          <NavLink exact to="/" > Home</NavLink>
+          <NavLink to="/" > Home</NavLink>
           </NavItem>
           <Nav>
             <NavLink to="/costumes">Browse all costumes</NavLink>

@@ -15,13 +15,16 @@ import "./AllCostumes.css";
 const AllCostumes = ({allCostumes}) => {
 
     return (
-        <div>
+        <div name="AllCostumes">
             {allCostumes && allCostumes.length > 0 ? (
                     <ListGroup>
                {allCostumes.map(costume => (
                 <List type='inline' key={costume.item_name}>
-                    <Link to={{pathname: `/costumes/${costume.item_name}`, state: {allCostumes: costume}}}>
-                        {costume.item_name.replace(/-/g, ' ')}
+                    <Link to={{pathname: `/costumes/${costume.item_name}`, 
+                    state: {allCostumes: costume}}}>
+                {costume.item_name.includes("-")
+                  ? costume.item_name.replace(/-/g, " ")
+                  : costume.item_name}
                     </Link>
                 </List>
             ))}

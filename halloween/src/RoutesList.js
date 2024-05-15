@@ -17,10 +17,10 @@ const RoutesList = ({allCostumes}) => {
 
     return (
         <Routes>
-            <Route exact="true" path="/costumes" element={<AllCostumes allCostumes={allCostumes} />} />
-            <Route exact="true" path="/costumes/:item_name" element={<CostumeDetail allCostumes={allCostumes}/>} />
-            <Route exact="true" path="/youtube-video/:item_name" element={<YouTubeVideo />} />
-            <Route exact="true" path="/" element={<Questions />} />
+            <Route path="/costumes" element={<AllCostumes allCostumes={allCostumes} />} />
+            <Route path="/costumes/:item_name" element={<CostumeDetail allCostumes={allCostumes}/>} />
+            <Route path="/youtube-video/:item_name" element={<YouTubeVideo />} />
+            <Route path="/" element={<Questions />} />
         </Routes>
     )
 }

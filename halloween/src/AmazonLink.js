@@ -14,7 +14,6 @@ const AmazonLink = ({amazonLink, image}) => {
         <div>         
             <h1> You got {item_name.item_name.replace(/-/g, ' ').toUpperCase()}!</h1>
             <a href={amazonLink} target="_blank" rel="noopener noreferrer"> Click here to purchase costume </a>
-
             <img src={image}></img>
         </div>
     )

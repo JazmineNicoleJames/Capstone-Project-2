@@ -1,7 +1,5 @@
-import React from "react";
 import { MemoryRouter } from "react-router-dom";
-import { fireEvent, render } from "@testing-library/react";
-import '@testing-library/jest-dom/extend-expect';
+import { render } from "@testing-library/react";
 import AllCostumes from '../AllCostumes';
 
 jest.mock('../App', () => ({
@@ -11,10 +9,11 @@ jest.mock('../App', () => ({
             {item_name: 'Grim Reaper'}
         ]
     })
-}))
+}));
+
 
 test("should match snapshot", () => {
-    const allCostumes = [{item_name: 'Grim Reaper'}]
+    const allCostumes = [{item_name: 'Grim Reaper'}];
     const { asFragment } = render(
         <MemoryRouter>
             <AllCostumes allCostumes={allCostumes}/>
@@ -24,8 +23,9 @@ test("should match snapshot", () => {
     expect(asFragment()).toMatchSnapshot();
 });
 
+
 test("renders AllCostumes", () => {
-    const allCostumes = [{item_name: 'Grim Reaper'}]
+    const allCostumes = [{item_name: 'Grim Reaper'}];
     const { getByText } = render(
         <MemoryRouter>
             <AllCostumes allCostumes={allCostumes} />
@@ -34,7 +34,8 @@ test("renders AllCostumes", () => {
     expect(getByText("Grim Reaper")).toBeInTheDocument();
 });
 
-test('fails to renders AllCostumes, displays msg', () => {
+
+test('fails to renders AllCostumes, displays error message', () => {
     const { getByText } = render(
         <MemoryRouter>
             <AllCostumes />
