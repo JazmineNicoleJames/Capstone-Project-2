@@ -1,5 +1,4 @@
-const axios = "axios";
-
+import axios from 'axios';
 const BASE_URL = process.env.REACT_APP_BASE_URL || "http://localhost:3001";
 
 /** API Class.
@@ -19,20 +18,21 @@ class HalloweenApi {
         try {
           return (await axios({ url, method, data, params })).data;
         } catch (err) {
-          console.error("API Error:", err.response);
-          let message = err.response.data.error.message;
-          throw Array.isArray(message) ? message : [message];
+          console.error("API Error:", err);
+          if(err.response.data){
+            let message = err.response.data.error.message;
+            throw Array.isArray(message) ? message : [message];
+          }
+
         }
     };
 
     static async getCostumes() {
         let res = await this.request(`costumes`);
-        console.log('res', res)
         return res;
     }
     static async getCostume(name) {
         let res = await this.request(`costumes/${name}`);
-        console.log('res in getCostume!!@@@@', res)
         return res;
     };
 

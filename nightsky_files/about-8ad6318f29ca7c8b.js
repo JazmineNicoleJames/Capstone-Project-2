@@ -1,0 +1,2 @@
+(self.webpackChunk_N_E=self.webpackChunk_N_E||[]).push([[2521],{38318:function(n,u,t){(window.__NEXT_P=window.__NEXT_P||[]).push(["/about",function(){return t(7378)}])},7378:function(n,u,t){"use strict";t.r(u),t.d(u,{default:function(){return _}});var e=t(85893),r=t(80358);function _(){return(0,e.jsx)(r.MarketingPage,{})}}},function(n){n.O(0,[4321,4396,2962,3387,8316,9669,1017,2117,9774,2888,179],function(){return n(n.s=38318)}),_N_E=n.O()}]);
+//# sourceMappingURL=about-8ad6318f29ca7c8b.js.map

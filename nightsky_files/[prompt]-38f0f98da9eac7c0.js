@@ -1,0 +1,2 @@
+(self.webpackChunk_N_E=self.webpackChunk_N_E||[]).push([[8268],{31277:function(n,_,u){(window.__NEXT_P=window.__NEXT_P||[]).push(["/prompt/[prompt]",function(){return u(37811)}])}},function(n){n.O(0,[4321,8391,9317,2962,3387,1525,2777,6931,3713,4815,7811,9774,2888,179],function(){return n(n.s=31277)}),_N_E=n.O()}]);
+//# sourceMappingURL=[prompt]-38f0f98da9eac7c0.js.map

@@ -1,6 +1,6 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-
+import './AmazonLink.css';
 /* AmazonLink component
     * amazonLink and image props passed down from App.js
 
@@ -11,10 +11,14 @@ const AmazonLink = ({amazonLink, image}) => {
     const item_name = useParams();
 
     return (
-        <div>         
-            <h1> You got {item_name.item_name.replace(/-/g, ' ').toUpperCase()}!</h1>
-            <a href={amazonLink} target="_blank" rel="noopener noreferrer"> Click here to purchase costume </a>
-            <img src={image}></img>
+        <div>   
+ 
+            <p className="result-text-name">{item_name.item_name.replace(/-/g, ' ').toUpperCase()}</p>
+            <a className="amazon-link" href={amazonLink} target="_blank" rel="noopener noreferrer">  Click here to purchase costume </a>
+            <div className="image-div">
+               <img src={image} alt="costume image"></img>
+            </div> 
+
         </div>
     )
 };

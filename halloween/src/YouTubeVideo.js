@@ -44,8 +44,6 @@ const YouTubeVideo = () => {
             return(<Questions />)
           }
         }
-
-
       } catch (e) {
         setError(e)
 /*         console.error('Error fetching video data', e) */
@@ -56,13 +54,30 @@ const YouTubeVideo = () => {
 
   if(error){
     return( <div> Error </div>)
-  }
+  };
+
+/*   Convert the data from products list into clickable convertToLinks. */
+  const convertToLinks = (text) => {
+    if(!text) return null;
+
+    return text.split('\n').map((line, index) => {
+      if (line.startsWith('http')) {
+        return (
+          <a key={index} href={line} target="_blank" rel="noopener noreferrer">
+            {line}
+          </a>
+        );
+      } else {
+        return <span key={index}>{line}</span>;
+      }
+    });
+  };
 
     return (
         <div>
         <h3 className="result-text"> Watch this tutorial to learn how to transform yourself into </h3>
         {item_name && (
-        <p className="result-text">{item_name.replace(/-/g, ' ').toUpperCase()}</p>
+        <p className="result-text-name">{item_name.replace(/-/g, ' ').toUpperCase()}</p>
         )}
         <iframe
         width="560"
@@ -74,7 +89,7 @@ const YouTubeVideo = () => {
       ></iframe>
               <p className="title">{title}</p>
               {description && (
-                <div style={{ maxHeight:"200px", overflowY:"auto"}}>
+                <div className="description" style={{ maxHeight:"200px", overflowY:"auto"}}> Details:
                   <ul>
                   {description.split("\n").map((item, index) => (
                     <li key={index}>{item}</li>

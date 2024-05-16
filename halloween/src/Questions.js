@@ -37,7 +37,7 @@ const Questions = () => {
     }
 
     return (
-        <div> 
+        <div className="welcome"> 
             <h1 className="welcome-msg">Welcome. Let's come up with a costume, shall we?</h1>
             <h3 className="directions"> Begin by answering the following prompts </h3>
             <form onSubmit={handleSubmit} className="custom-select" data-testid="my-form">
@@ -64,14 +64,14 @@ const Questions = () => {
                 <div className="custom-select">
                     <label htmlFor="experienceLevel">
                         <select value={experienceLevel} onChange={(e) => setExperienceLevel(e.target.value)}>
-                            <option value="experienceLevel"> Select your experience Level</option>
+                            <option value="experienceLevel"> Select your experience level</option>
                             <option value="easy">Easy</option>
                             <option value="intermediate">Intermediate</option>
                             <option value="advanced">Advanced</option>
                         </select>
                     </label>
                 </div>
-                <button type="submit">Submit</button>
+                <button className="btn-76" type="submit">Submit</button>
             </form>
             </div>
     )

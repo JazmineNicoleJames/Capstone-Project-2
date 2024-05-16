@@ -1,7 +1,7 @@
 
 import React, { useEffect, useState } from 'react';
 import RoutesList from "./RoutesList.js";
-import HalloweenApi from './api.js';
+import HalloweenApi from './api';
 import NavBar from "./NavBar.js";
 import './App.css';
 
@@ -29,8 +29,10 @@ function App() {
   }, [])
 
   if(error){
+    console.error('error', error)
     return(
       <div> Error</div>
+
     )
     }
 

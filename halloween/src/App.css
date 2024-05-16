@@ -1,5 +1,7 @@
 .App {
   text-align: center;
+  background-color: rgba(0, 0, 0, 0.933);
+
 }
 
 .App-logo {
@@ -14,13 +16,16 @@
 }
 
 .App-header {
-  background-color: #282c34;
+
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   font-size: calc(10px + 2vmin);
   color: white;
+  background-image: url('moon-october-scary-night.jpeg');
+  background-size: cover; /* Adjusts the size of the background image */
+  background-position: center;
 }
 
 .App-link {

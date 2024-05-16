@@ -39,7 +39,7 @@ test("handles empty results", async () => {
 
     fireEvent.change(getByText('Select a theme'), {target: {value: 'classic'}});
     fireEvent.change(getByText('Select a gender preference'), {target: {value: 'feminine'}});
-    fireEvent.change(getByText('Select your experience Level'), {target: {value: 'easy'}});
+    fireEvent.change(getByText('Select your experience level'), {target: {value: 'easy'}});
     
     fireEvent.submit(getByText('Submit'));
 
