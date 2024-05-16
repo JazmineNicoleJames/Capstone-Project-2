@@ -1,4 +1,4 @@
-require('dotenv').config();
+require('dotenv').config({ path: 'back-end/.env'});
 
 
 const express = require("express");
