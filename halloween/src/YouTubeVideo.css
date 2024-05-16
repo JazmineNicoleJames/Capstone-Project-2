@@ -1,0 +1,31 @@
+.result-text {
+    font-size: 18px;
+}
+
+.result-text-name {
+    font-size: 30px;
+    text-shadow: 2px 2px 4px rgba(234, 12, 12, 0.703);
+    word-spacing: 10px;
+    letter-spacing: 5px;
+    margin-bottom: 0;
+    margin-top: 5px;
+}
+
+.title {
+    
+    font-size: 15px;
+    display: flexbox;
+    flex-direction: column;
+}
+
+.description {
+    font-size: 10px;
+    background-image: url('moon-october-scary-night.jpeg');
+    background-size: cover; 
+    background-position: center;
+  
+}
+
+iframe {
+    border: 30px solid rgba(38, 145, 145, 0.204);
+}
